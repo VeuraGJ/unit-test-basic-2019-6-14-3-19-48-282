@@ -37,8 +37,12 @@ class ExpenseServiceTest {
     @Test
     void should_return_expense_type_B_if_project_is_external_and_name_is_project_B() throws UnexpectedProjectTypeException {
         // given
+        Project project = new Project(ProjectType.EXTERNAL,"Project B");
+        ExpenseType exceptedExpenseType = ExpenseType.EXPENSE_TYPE_B;
         // when
+        ExpenseType actualExpenseType = ExpenseService.getExpenseCodeByProjectTypeAndName(project);
         // then
+        assertSame(exceptedExpenseType,actualExpenseType);
     }
 
     @Test
